@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru-RU"
+<head>
+	<meta charset="UTF-8">
+	<title>Карточка товара</title>
+	<style type="text/css">
+		div {
+			margin-top: 10px;
+		}
+		td>input {
+		width: 99%;
+		height: 99%
+		cellpadding: 0;}
+	</style>
+	<script src='ТестовоеЗадание.js'></script>
+</head>
+<body>
+	<h1>Карточка товара</h1>
+	<table border="1"  cellspacing="0" width="500px">
+		<tr>
+			<th>ID</th>
+			<td>1</td>
+		</tr>
+		<tr>
+			<th>Наименование</th>
+			<td>Ноутбук ThinkPad T460 14"FHD(1920x1080),i5-6200U(2,3GHz),4Gb,500GB@5400+8Gb cache, HD Graphics 520, WiFi,BT,TPM,FPR,WWAN ready,3cell+3cell,Cam,Win7 Pro 64 + Win10 Pro upgrade coupon,1,7kg, 3y OS</td>
+		</tr>
+		<tr>
+			<th>Цена</th>
+			<td>
+				<input id="save_button" type="text" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<th>Кол-во</th>
+			<td>
+				<input type="text" value="2"/>
+			</td>
+		</tr>
+	</table>
+	<div>
+		<input type="button" name="button" value="Сохранить" onclick="save()"/>
+		<input type="button" name="button" value="Отмена" onclick="cancel()"/>
+	</div>
+	<div id="abc"></div>
+	
+</body>
+</html>

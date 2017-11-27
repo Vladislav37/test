@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru-RU"
+<head>
+	<meta charset="UTF-8">
+	<title>Окно регистрации</title>
+	<style type="text/css">
+	div {
+		width: 320px;
+		height: 200px;
+		padding: 10px;
+		margin: 20% 40%;
+		border: 1px solid #000;
+	}
+	</style>
+	<script src='ТестовоеЗадание.js'></script>
+</head>
+<body>
+	
+	<div>
+		<h1>Регистрация</h1>
+		<p>
+			<label for="id_login">Логин:</label> 
+			<input type="text" name="login" id="id_login">
+		</p>
+		<p>
+			<label for="id_password">Пароль:</label> 
+			<input type="password" name="password" id="id_password">
+		</p>
+		<form method="post" action="" onsubmit= >
+			<input type="button" name="button" id="id_button" value="Вход" onclick="enter()" />
+		</form>
+		
+	</div>
+	
+</body>
+</html>

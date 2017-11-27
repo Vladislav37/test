@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Главное окно</title>
+	<style type="text/css" media="screen">
+	/* Базовый контейнер табов */
+	.tabs {
+		min-width: 320px;
+		max-width: 800px;
+		padding: 0px;
+		margin: 50px;
+	}
+	/* Стили секций с содержанием */
+	.tabs>section {
+		display: none;
+		padding: 15px;
+		background: #fff;
+		border: 1px solid #000;
+	}
+	.tabs>section>p {
+		margin: 0 0 15px;
+		line-height: 1.5;
+		color: black;
+	}
+	
+	/* Прячем чекбоксы */
+	.tabs>input {
+		display: none;
+		position: relative;
+	}
+	/* Стили переключателей вкладок (табов) */
+	.tabs>label {
+		display: inline-block;
+		margin: 0 0 1px;
+		padding: 15px 25px;
+		font-weight: 600;
+		text-align: center;
+		color: #aaa;
+		border: 0px solid #ddd;
+		border-width: 1px 1px 1px 1px;
+		background: white;
+		/*border-radius: 3px 3px 0 0;*/
+	}
+	
+	/* Изменения стиля переключателей вкладок при наведении */
+	 
+	.tabs>label:hover {
+		color: #888;
+		cursor: pointer;
+	}
+	/* Стили для активной вкладки */
+	.tabs>input:checked+label {
+		color: #555;
+		border-top: 1px solid #000000;
+		border-left: 1px solid #000000;
+		border-right: 1px solid #000000;
+		border-bottom: 1px solid #000000;
+		background: #fff;
+	}
+	/* Активация секций с помощью псевдокласса :checked */
+	#tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4 {
+		display: block;
+	}
+	</style>
+	<script src='ТестовоеЗадание.js'></script>
+	<script language="JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js">
+	</script>
+	<script>
+		$(function() {
+		var Store = {
+		  str1: ['1','Ноутбук Lenovo', 'Ноутбук ThinkPad T460 14"FHD(1920x1080),i5-6200U(2,3GHz),4Gb,500GB@5400+8Gb cache, HD Graphics 520, WiFi,BT,TPM,FPR,WWAN ready,3cell+3cell,Cam,Win7 Pro 64 + Win10 Pro upgrade coupon,1,7kg, 3y OS', '100','2'],
+		  str2: ['2', 'Клавиатура OKLICK',  'Клавиатура OKLICK 140M, &nbsp;USB, черный', '50', '8'],
+		  str3: ['3', 'Сетевой адаптер', 'Сетевой адаптер WiFi D-Link DWA-582 DWA-582/RU',  '7', '0']
+		}
+		var tbody = $("#myTable tbody");
+		Object.keys(Store).forEach(function(key) {
+			var tds = Store[key];
+			var tr = $("<tr/>").appendTo(tbody);
+			tds.forEach(function(text, i) {
+				var obj = {
+					text: text
+				};
+				if (i == 1) obj = {
+					html: $("<a/>", {
+						href: "Карточка товара.html",
+						text: text
+					})
+				};
+				var td = $("<td/>", obj).appendTo(tr)
+			})
+		});
+		});
+
+	</script>
+
+	
+</head>
+<body>
+
+	<input type="button" name="button" id="button_pdt" value="Товары" onclick="change()"/>
+	
+  
+	<div class="tabs">
+		<input class="tab_pdt" id="tab1" type="radio" name="tabs" checked>
+		<label for="tab1" title="Товар 1">Товары 1</label>
+		
+		<input class="tab_pdt" id="tab2" type="radio" name="tabs">
+		<label for="tab2" title="Товар 2">Товары 2</label>
+	 
+		<input class="tab_pdt" id="tab3" type="radio" name="tabs">
+		<label for="tab3" title="Товар 3">Товары 3</label>
+		<script>
+			var active = 0, inputs=document.querySelectorAll('.tab_pdt') ;
+			function change() {
+			
+				active= ++active % inputs.length;
+				inputs[active].checked = true
+			};
+		</script>
+		<section id="content-tab1">
+			<p>Список товаров</p>
+			<p>
+				<label for="id_search">Фильтр по ИД:</label> 
+				<input type="search" name="search" id="id_search">
+			</p>
+			<p>
+				<label for="id_search">Фильтр по имени:</label> 
+				<input type="search" name="search" id="id_search">
+			</p>
+			<table id="myTable" border="1" cellpadding="10" cellspacing="0">
+				<tr>
+					<th id="ID">ID</th>
+					<th id="idPdt">Имя</th>
+					<th id="pdtDescriprion">Описание</th>
+					<th id="pdtPrice">Цена</th>
+					<th id="pdtQuantity">Количество</th>
+				</tr>
+				
+			</table>
+			<!-- <script>	 -->
+				<!-- for (property in Store) { -->
+					<!-- var tr = '<tr>'; // создаем строку таблицы -->
+					<!-- Store[property].forEach(function(item) { -->
+					<!-- tr += '<td>' + item + '</td>'; // добавляем столбцы в строку -->
+				<!-- }); -->
+				<!-- tr += '</tr>'; // закрываем строку таблицы -->
+				<!-- $('#myTable > tbody:last-child').append(tr); // добавляем полученную строку в дом -->
+				<!-- } -->
+				
+				
+				
+				
+				<!-- console.log(Store.str1[3]); -->
+			<!-- </script> -->
+			
+		</section>  
+		<section id="content-tab2">
+			<p>
+			2 товар 2
+			</p>
+		</section> 
+		<section id="content-tab3">
+			<p>
+			3 товар 3
+			</p>
+		</section> 
+    
+	</div>
+
+	<input type="button" name="button" id="exit_button" value="Выход" onclick="exit()" />
+	
+</body>
+
+</html>
